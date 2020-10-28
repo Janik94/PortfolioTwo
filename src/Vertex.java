@@ -30,6 +30,13 @@ public class Vertex implements Comparable<Vertex> {
         this.dist = distance;
     }
 
+    public Vertex getPreviousVertex() {
+        return this.prev;
+    }
+    public void setPreviousVertex(Vertex vertex) {
+        this.prev = vertex;
+    }
+
     @Override
     public int compareTo(Vertex vertex) {
         return this.dist.compareTo(vertex.getDistance());

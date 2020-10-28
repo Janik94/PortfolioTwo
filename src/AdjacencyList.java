@@ -1,6 +1,5 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class AdjacencyList {
@@ -48,11 +47,11 @@ public class AdjacencyList {
 
                 for (Edge edge : outEdgesOfElement)
                 {
-                    if (edge.getWeight() < edge.to.getDistance() && !edge.to.hasBeenVisited)
+                    if (edge.getWeight() < edge.getToVertex().getDistance() && !edge.getToVertex().hasBeenVisited)
                     {
-                        edge.to.setDistance(edge.getWeight());
-                        edge.to.prev = vertices.get(index);
-                        Q.offer(edge.to);
+                        edge.getToVertex().setDistance(edge.getWeight());
+                        edge.getToVertex().setPreviousVertex(vertices.get(index));
+                        Q.offer(edge.getToVertex());
                     }
                 }
                 vertices.get(index).hasBeenVisited = true;
@@ -67,9 +66,9 @@ public class AdjacencyList {
     public void printMinimumSpanningTree() {
             for (Vertex vertex : vertices) {
                 try {
-                    System.out.println("Vertex " + vertex.getName() + " has parent " + vertex.prev.getName() + ". Cost is " + vertex.getDistance()+ ".");
+                    System.out.println("Vertex " + vertex.getName() + " has parent " + vertex.getPreviousVertex().getName() + ". Cost is " + vertex.getDistance()+ ".");
                 } catch (NullPointerException e) {
-                    if(vertex.prev == null)
+                    if(vertex.getPreviousVertex() == null)
                     {
                     System.out.println("Vertex "+vertex.getName()+" has no Parent.");
                     }

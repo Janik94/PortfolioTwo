@@ -14,6 +14,7 @@ public class Edge{
         return this.weight;
     }
 
+        //returns the vertex the edge is "pointing" to
     public Vertex getToVertex() {
         return this.to;
     }

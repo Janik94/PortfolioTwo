@@ -7,7 +7,9 @@ public class Main {
         electricityGrid.printMinimumSpanningTree();
     }
 
-
+        //method to add all vertices and edges
+        //here, it gets an empty adjacency list as input
+        //and returns this list after being filled with vertices and edges
     public static AdjacencyList addVerticesAndEdges(AdjacencyList cities) {
         Vertex eskildstrup = new Vertex("Eskildstrup");
         Vertex haslev = new Vertex("Haslev");
